@@ -14,13 +14,37 @@ function GirlfriendDay() {
     const playMusic = async () => {
       try {
         await audio.play();
+
+        // Kalau musik berhasil berjalan,
+        // hapus listener supaya tidak terus dipanggil.
+        removeInteractionListeners();
       } catch {
-        // Autoplay diblokir oleh browser.
-        // Tidak ada tombol yang ditampilkan.
+        // Autoplay diblokir browser.
+        // Tunggu interaksi pertama dari pengunjung.
       }
     };
 
+    const handleInteraction = () => {
+      playMusic();
+    };
+
+    const removeInteractionListeners = () => {
+      window.removeEventListener("click", handleInteraction);
+      window.removeEventListener("touchstart", handleInteraction);
+      window.removeEventListener("keydown", handleInteraction);
+    };
+
+    // Coba langsung saat website dibuka
     playMusic();
+
+    // Fallback jika autoplay diblokir
+    window.addEventListener("click", handleInteraction);
+    window.addEventListener("touchstart", handleInteraction);
+    window.addEventListener("keydown", handleInteraction);
+
+    return () => {
+      removeInteractionListeners();
+    };
   }, []);
 
   return (
