@@ -148,11 +148,10 @@
 ========================================= */
 
 .polaroid img {
-  display: block;
-
-  width: 100%;
-
+  width: 92%;
   height: auto;
+
+  margin: 0 auto;
 
   aspect-ratio: 1 / 1;
 
@@ -313,7 +312,7 @@
 
 @media (max-width: 600px) {
   .girlfriend-content {
-    padding: 45px 14px 70px;
+    padding: 45px 12px 70px;
   }
 
   .girlfriend-header {
@@ -322,7 +321,6 @@
 
   .girlfriend-date {
     font-size: 10px;
-
     letter-spacing: 3px;
   }
 
@@ -334,18 +332,22 @@
     font-size: 14px;
   }
 
-  /* POLAROID */
+  /* =========================================
+     POLAROID MOBILE
+  ========================================= */
 
   .polaroid-section {
-    grid-template-columns: minmax(0, 270px);
+    grid-template-columns: minmax(0, 290px);
 
-    gap: 38px;
+    gap: 42px;
 
     width: 100%;
   }
 
   .polaroid {
     width: 100%;
+
+    padding: 12px 12px 24px;
   }
 
   .polaroid-one,
@@ -358,7 +360,33 @@
     transform: rotate(2deg);
   }
 
-  /* MESSAGE */
+  /* =========================================
+     TEXT MOBILE
+  ========================================= */
+
+  .polaroid p {
+    margin: 18px 8px 0;
+
+    font-family:
+      Inter,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.75;
+
+    text-align: left;
+
+    color: #625666;
+  }
+
+  /* =========================================
+     MESSAGE MOBILE
+  ========================================= */
 
   .message-card {
     width: 100%;
@@ -376,27 +404,5 @@
     font-size: 14px;
 
     line-height: 1.75;
-  }
-}
-
-/* =========================================
-   VERY SMALL PHONE
-========================================= */
-
-@media (max-width: 380px) {
-  .girlfriend-content {
-    padding-left: 12px;
-
-    padding-right: 12px;
-  }
-
-  .polaroid-section {
-    grid-template-columns: minmax(0, 245px);
-  }
-
-  .message-card {
-    padding-left: 18px;
-
-    padding-right: 18px;
   }
 }
